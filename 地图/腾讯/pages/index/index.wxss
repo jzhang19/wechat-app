@@ -1,0 +1,35 @@
+.search {
+	background-color: gainsboro;
+	padding: 20rpx;
+}
+
+.search input {
+	background-color: #fff;
+	color: #737373;
+	text-align: center;
+}
+
+.placeholder-class {
+	color: #eaeaea;
+	text-align: center;
+}
+
+.header {
+	background: #eaeaea;
+	padding: 20rpx;
+}
+
+.current {
+	color: #00a2c7;
+	padding: 20rpx;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.item {
+	padding: 20rpx;
+	display: flex;
+	flex-direction: column;
+	border-bottom: 1px solid #eaeaea;
+}

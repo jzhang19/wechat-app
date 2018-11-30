@@ -1,0 +1,28 @@
+<view class="container">
+	<view class="search">
+		<input class="border-radius-small" type="text" bindinput="getSuggestions" placeholder="请输入地址" placeholder-class="placeholder-class"/>
+	</view>
+	<view class="header">当前地址</view>
+	<view class="current">
+		<text wx:if="{{loadingCurrentAddress}}">{{currentAddress}}</text>
+		<text wx:if="{{!loadingCurrentAddress}}" bindtap="geoTapped">{{currentAddress.address_component.city}} {{currentAddress.address_component.district}}</text>
+		<text bindtap="loadCurrent" class="fa fa-location"></text>
+	</view>
+	<view class="header">搜索地址</view>
+	<view class="list">
+		<block wx-if="{{searchValue === ''}}">
+			<view class="item" bindtap="addressTapped" data-cityname="{{currentAddress.ad_info.city}}" data-areaname="{{item.fullname}}" data-id="{{item.id}}" wx:for="{{currentAreas}}">
+				<text class="title font-size-1 line-height-large">{{currentAddress.ad_info.city}}</text>
+				<text class="address">{{item.fullname}}</text>
+			</view>
+		</block>
+		<block wx-if="{{searchValue !== ''}}">
+			<view class="item" bindtap="addressTapped" data-cityname="{{item.cityname}}" data-areaname="{{item.fullname}}" data-id="{{item.id}}" wx:for="{{suggestions}}">
+				<text class="title font-size-1 line-height-large">{{item.cityname}}</text>
+				<text class="address">{{item.fullname}}</text>
+			</view>
+		</block>
+	</view>
+</view>
+<button bindtap="openLocation">Open Location</button>
+<button bindtap="chooseLocation">Choose Location</button>
